@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)" />
+    <title>Fast Website Development</title>
+    <meta name="description" content="A template for going from idea to a live zachtime.xyz subdomain in minutes." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <p class="eyebrow">zachtime.xyz template</p>
+        <h1>Idea to live URL<br /><span>in about a minute.</span></h1>
+        <p class="lede">
+          A minimal Vite site with one-command deploys to its own <code>*.zachtime.xyz</code>
+          subdomain. Open it on your phone and your laptop, edit, deploy, refresh.
+        </p>
+      </header>
+
+      <section class="panel" aria-labelledby="device-title">
+        <h2 id="device-title">This device</h2>
+        <dl class="device" id="device">
+          <div><dt>Viewport</dt><dd data-k="viewport">–</dd></div>
+          <div><dt>Pixel ratio</dt><dd data-k="dpr">–</dd></div>
+          <div><dt>Orientation</dt><dd data-k="orientation">–</dd></div>
+          <div><dt>Color scheme</dt><dd data-k="scheme">–</dd></div>
+          <div><dt>Pointer</dt><dd data-k="pointer">–</dd></div>
+          <div><dt>Build</dt><dd data-k="version">–</dd></div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="start-title">
+        <h2 id="start-title">Start a new project</h2>
+        <ol class="steps">
+          <li>
+            <h3>Create the repo from this template</h3>
+            <pre><code>gh repo create my-idea --private --clone \
+  --template zacnel909/fast-website-development
+cd my-idea</code></pre>
+          </li>
+          <li>
+            <h3>Name the subdomain</h3>
+            <p>Set <code>"subdomain": "my-idea"</code> in <code>site.config.json</code>. That's the only required edit.</p>
+          </li>
+          <li>
+            <h3>Iterate locally</h3>
+            <pre><code>npm install
+npm run dev</code></pre>
+            <p>The dev server listens on your LAN. Open the <em>Network</em> URL it prints on your phone.</p>
+          </li>
+          <li>
+            <h3>Deploy</h3>
+            <pre><code>aws sso login --profile magic-of-words   # if needed
+npm run deploy</code></pre>
+            <p>
+              The first run creates the bucket, CloudFront, and DNS (a few minutes). After that,
+              each deploy takes about 15 seconds. You don't need to commit or push.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="grid" aria-label="What's included">
+        <article>
+          <h3>Static by default</h3>
+          <p>S3 + CloudFront with the shared wildcard cert. HTML revalidates on every load, so a refresh shows the latest deploy.</p>
+        </article>
+        <article>
+          <h3>Dynamic when needed</h3>
+          <p>To add an API, give the same distribution an <code>/api/*</code> behavior pointing at a Lambda. No change of host required.</p>
+        </article>
+        <article>
+          <h3>Local credentials only</h3>
+          <p>Deploys use your SSO session. No secrets in GitHub, no long-lived keys.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <span id="version"></span>
+      <a href="https://github.com/zacnel909/fast-website-development">GitHub</a>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

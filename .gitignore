@@ -1,0 +1,7 @@
+node_modules/
+dist/
+infra/cdk.out/
+.env
+.env.*
+.DS_Store
+.claude/worktrees/

@@ -1,0 +1,24 @@
+{
+  "name": "fast-website-development",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Template for rapidly prototyping websites on *.zachtime.xyz subdomains.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "deploy": "bash scripts/deploy.sh",
+    "infra": "bash scripts/deploy.sh --infra",
+    "infra:diff": "bash scripts/deploy.sh --diff"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "aws-cdk": "^2.1000.0",
+    "aws-cdk-lib": "^2.180.0",
+    "constructs": "^10.4.2",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.8"
+  }
+}
